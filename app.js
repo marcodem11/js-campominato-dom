@@ -1,17 +1,17 @@
-const selectElement = document.getElementById('mode');
+const selectElement = document.getElementById('options');
 const playButton = document.getElementById('play');
 const gridElement = document.querySelector('.grid')
 
 const startGame = () => {
     console.log('Inizia il gioco');
 
-    const mode = parseInt (selectElement.value)
+    const options = (selectElement.value)
     let rows;
     let columns;
     let cellSize;
-    console.log(mode)
+    console.log(options)
 
-    switch(mode) {
+    switch(options) {
         case 'easy':
             rows = 10;
             columns = 10;
