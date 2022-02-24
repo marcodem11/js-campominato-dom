@@ -73,3 +73,24 @@ footer{
 #credits{
     margin-left: 20%;
 }
+
+.element {
+    aspect-ratio: 1/1;
+    border-top: 5px solid white;
+    border-left: 5px solid white;
+    border-right: 5px solid grey;
+    border-bottom: 5px solid grey;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .selected {
+    background-color: rgb(50, 99, 222);
+    color: white;
+  }
+  .bomb {
+    background-color: red;
+    color: black;
+  }
+  

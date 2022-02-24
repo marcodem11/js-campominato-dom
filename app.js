@@ -43,6 +43,45 @@ const startGame = () => {
         gridElement.appendChild(cell);
     }
 
+    
+function createBomb() {
+    bombList = [];
+    while (bombList.length < 16) {
+      const bombNumber = getRandomInt(1, Math.pow(numberGrid, 2));
+      if (!bombList.includes(bombNumber)) {
+        bombList.push(bombNumber);
+      }
+    }
+    console.log(bombList);
+  }
+
 }
+
+function bombReveal() {
+    let cells = document.getElementsByClassName('element');
+    for (let i = 0; i < cells.length; i++) {
+      if (bombList.includes(parseInt(cells[i].innerHTML))) {
+        cells[i].classList.add('bomb');
+        console.log(cells)
+      }
+    }
+  }
+
+  function selectThisGrid(event) {
+    const squareWrapper = event.target;
+    if (bombList.includes(parseInt(squareWrapper.innerHTML))) {
+      squareWrapper.classList.add('bomb');
+      endGameLose();
+      bombReveal();
+    } else if (!squareWrapper.classList.contains('selected')) {
+      squareWrapper.classList.add('selected');
+      score = score + 1;
+      if (score == Math.pow(numberGrid, 2) - 16) {
+        endGameWin();
+        bombReveal();
+      }
+    }
+    console.dir(squareWrapper);
+  }
 
 playButton.addEventListener('click', startGame);
